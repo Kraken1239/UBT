@@ -11,6 +11,7 @@ from pathlib import Path
 import re
 import secrets
 import sqlite3
+import ssl
 import threading
 import time
 import urllib.error
@@ -28,7 +29,8 @@ LIMITS = {}
 LOCK = threading.Lock()
 
 class Problem(Exception):
-    def __init__(self, status, message): self.status, self.message = status, message
+    def __init__(self, status, message, code=None, provider_status=None):
+        self.status, self.message, self.code, self.provider_status = status, message, code, provider_status
 
 def require(condition, message, status=400):
     if not condition: raise Problem(status, message)
@@ -253,7 +255,7 @@ class Handler(BaseHTTPRequestHandler):
                     db.execute('INSERT INTO feedback(user_id,question_id,reasoning,response,mode,created) VALUES(?,?,?,?,?,?)',(uid,qid,reasoning,response,mode,time.time()))
                     return self.send(200,{'response':response,'mode':mode})
                 raise Problem(404,'Not found')
-        except Problem as e: self.send(e.status,{'error':e.message})
+        except Problem as e: self.send(e.status,{'error':e.message,'code':e.code,'provider_status':e.provider_status})
         except (ValueError,TypeError,KeyError): self.send(400,{'error':'Invalid request'})
         except Exception as e:
             print('Request failed:',type(e).__name__,flush=True)
@@ -359,18 +361,37 @@ class Handler(BaseHTTPRequestHandler):
         try:
             with urllib.request.urlopen(req,timeout=35) as response: result=json.load(response)
             text=result['choices'][0]['message']['content']
-            require(isinstance(text,str) and text.strip(),'Empty AI response',502)
+            if not isinstance(text,str) or not text.strip(): raise Problem(502,'AI returned an invalid response; please retry','ai_response')
             return text[:12000],'ai'
         except urllib.error.HTTPError as e:
-            if e.code in {401,403}: raise Problem(502,'AI key or model access rejected; check server configuration')
-            if e.code==429: raise Problem(503,'AI quota or rate limit reached; check provider billing and retry later')
-            raise Problem(502,'AI service unavailable. Prepared explanation remains available; please retry later.')
-        except (urllib.error.URLError,KeyError,IndexError,TypeError,ValueError,TimeoutError):
-            raise Problem(502,'AI service unavailable. Prepared explanation remains available; please retry later.')
+            # Only inspect an allowlisted error code. Never expose the provider
+            # body, which may contain request data or credential fragments.
+            provider_code=None
+            try:
+                error=json.loads(e.read(8192)).get('error',{})
+                if isinstance(error,dict): provider_code=error.get('code')
+            except (ValueError,TypeError,AttributeError): pass
+            if provider_code=='unsupported_country_region_territory':
+                raise Problem(502,'AI provider is unavailable in this region','ai_region',e.code)
+            if e.code in {401,403}: raise Problem(502,'AI key or model access rejected; check server configuration','ai_auth',e.code)
+            if e.code==429: raise Problem(503,'AI quota or rate limit reached; check provider billing and retry later','ai_quota',e.code)
+            if e.code==404: raise Problem(502,'Configured AI model was not found or is not accessible','ai_model',e.code)
+            if e.code==400: raise Problem(502,'AI provider rejected the request; check configured model compatibility','ai_request',e.code)
+            raise Problem(502,'AI provider returned an error; please retry later','ai_provider',e.code)
+        except urllib.error.URLError as e:
+            if isinstance(e.reason,ssl.SSLError): raise Problem(502,'TLS certificate verification failed when connecting to AI','ai_tls')
+            if isinstance(e.reason,TimeoutError): raise Problem(504,'AI request timed out; please retry','ai_timeout')
+            raise Problem(502,'Cannot connect to AI; check Internet access and firewall','ai_connection')
+        except ssl.SSLError:
+            raise Problem(502,'TLS certificate verification failed when connecting to AI','ai_tls')
+        except TimeoutError:
+            raise Problem(504,'AI request timed out; please retry','ai_timeout')
+        except (KeyError,IndexError,TypeError,ValueError):
+            raise Problem(502,'AI returned an invalid response; please retry','ai_response')
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('command',nargs='?',choices=['serve','validate-bank','import-bank'],default='serve')
+    parser.add_argument('command',nargs='?',choices=['serve','validate-bank','import-bank','check-ai'],default='serve')
     parser.add_argument('file',nargs='?')
     parser.add_argument('--port',type=int,default=8000)
     parser.add_argument('--host',default='127.0.0.1')
@@ -381,7 +402,12 @@ def main():
         require(bool(key),'API key cannot be empty')
         os.environ['UBT_AI_API_KEY']=key
     initialize()
-    if args.command!='serve':
+    if args.command=='check-ai':
+        require(bool(os.environ.get('UBT_AI_API_KEY') or os.environ.get('OPENAI_API_KEY')),'No AI key configured. Run with --ask-ai-key.')
+        q=next(q for q in BANK.values() if q['language']=='ru')
+        Handler.agent(None,q,'Объясни первый шаг решения кратко.',{'selected':None})
+        print('AI connection OK: provider returned a valid response.')
+    elif args.command!='serve':
         require(args.file,'Bank file is required')
         items=validate_bank(json.loads(Path(args.file).read_text(encoding='utf-8')))
         if args.command=='import-bank':
@@ -399,4 +425,7 @@ def main():
 
 if __name__=='__main__':
     try: main()
-    except Problem as e: raise SystemExit(e.message)
+    except Problem as e:
+        detail=f' [{e.code}]' if e.code else ''
+        status=f' (HTTP {e.provider_status})' if e.provider_status else ''
+        raise SystemExit(e.message+detail+status)

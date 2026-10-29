@@ -321,6 +321,26 @@ class AppTests(unittest.TestCase):
         with patch.dict(os.environ,{'UBT_AI_API_KEY':'test-only'}),patch.object(server.urllib.request,'urlopen',return_value=Empty()):
             self.assertEqual(self.request('/api/agent','POST',payload)[0],502)
 
+    def test_ai_diagnostics_are_specific_and_do_not_expose_provider_body(self):
+        import io
+        import ssl
+        a,r=self.completed();payload={'attemptId':a['id'],'questionId':r['questions'][0]['id'],'reasoning':'Помоги понять этот шаг решения'}
+        cases=[
+            (urllib.error.URLError(ssl.SSLCertVerificationError('certificate failed')),'ai_tls'),
+            (urllib.error.URLError(TimeoutError('slow')),'ai_timeout'),
+            (urllib.error.URLError('connection failed'),'ai_connection'),
+            (TimeoutError('slow'),'ai_timeout'),
+        ]
+        for status,code in [(400,'ai_request'),(404,'ai_model'),(503,'ai_provider')]:
+            cases.append((urllib.error.HTTPError('https://api.openai.com',status,'provider error',{},io.BytesIO(b'{"error":{"message":"DO_NOT_EXPOSE_PROVIDER_BODY"}}')),code))
+        cases.append((urllib.error.HTTPError('https://api.openai.com',403,'provider error',{},io.BytesIO(b'{"error":{"code":"unsupported_country_region_territory","message":"DO_NOT_EXPOSE_PROVIDER_BODY"}}')),'ai_region'))
+        for failure,expected in cases:
+            with patch.dict(os.environ,{'UBT_AI_API_KEY':'test-only'}),patch.object(server.urllib.request,'urlopen',side_effect=failure):
+                status,result=self.request('/api/agent','POST',payload)
+                self.assertGreaterEqual(status,500)
+                self.assertEqual(result['code'],expected)
+                self.assertNotIn('DO_NOT_EXPOSE',json.dumps(result))
+
     def test_rate_limit(self):
         with patch.dict(server.LIMITS,{},clear=True):
             server.throttle(('unit',self.email),1,60)
