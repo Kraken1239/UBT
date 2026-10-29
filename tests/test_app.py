@@ -341,6 +341,15 @@ class AppTests(unittest.TestCase):
                 self.assertEqual(result['code'],expected)
                 self.assertNotIn('DO_NOT_EXPOSE',json.dumps(result))
 
+    def test_render_https_origin_and_explicit_override(self):
+        credentials={'email':self.email,'password':'Long-password-123'}
+        with patch.dict(os.environ,{'RENDER_EXTERNAL_URL':'https://ubt-test.onrender.com'},clear=True):
+            self.assertEqual(self.request('/api/login','POST',credentials,headers={'Origin':'https://ubt-test.onrender.com'})[0],200)
+            self.assertEqual(self.request('/api/login','POST',credentials,headers={'Origin':'https://evil.example','X-Forwarded-Proto':'https'})[0],403)
+            with patch.dict(os.environ,{'UBT_ORIGIN':'https://custom.example/'}):
+                self.assertEqual(self.request('/api/login','POST',credentials,headers={'Origin':'https://custom.example'})[0],200)
+                self.assertEqual(self.request('/api/login','POST',credentials,headers={'Origin':'https://ubt-test.onrender.com'})[0],403)
+
     def test_rate_limit(self):
         with patch.dict(server.LIMITS,{},clear=True):
             server.throttle(('unit',self.email),1,60)

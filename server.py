@@ -149,7 +149,9 @@ class Handler(BaseHTTPRequestHandler):
             if method != 'GET':
                 require(self.headers.get('Content-Type', '').split(';')[0] == 'application/json', 'JSON required', 415)
                 origin = self.headers.get('Origin')
-                expected = os.environ.get('UBT_ORIGIN', 'http://' + self.headers.get('Host', ''))
+                # Render terminates HTTPS before forwarding HTTP to this process.
+                # Trust explicit deployment configuration, never arbitrary forwarded headers.
+                expected = (os.environ.get('UBT_ORIGIN') or os.environ.get('RENDER_EXTERNAL_URL') or 'http://' + self.headers.get('Host', '')).rstrip('/')
                 require(not origin or origin == expected, 'Origin rejected', 403)
                 require(self.headers.get('X-UBT-Request') == '1', 'Request header required', 403)
                 length = int(self.headers.get('Content-Length', '0'))
