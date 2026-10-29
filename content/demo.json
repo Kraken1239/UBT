@@ -1,0 +1,2212 @@
+[
+  {
+    "id": "ml1",
+    "subject_title": "Mathematical Literacy",
+    "topic": "Combinatorics and Probability",
+    "skill_id": "math_lit:probability",
+    "prompt": "An urn contains 3 white balls and 7 black balls. Two balls are drawn without replacement. What is the probability that both are white?",
+    "options": [
+      "9/100",
+      "3/10",
+      "1/5",
+      "1/15"
+    ],
+    "correct_idx": 3,
+    "explanation": "First draw: 3/10. After a white ball is removed, 2 white balls remain out of 9. Therefore (3/10) × (2/9) = 1/15.",
+    "recheck": {
+      "id": "ml1r",
+      "subject_title": "Mathematical Literacy",
+      "topic": "Combinatorics and Probability",
+      "skill_id": "math_lit:probability",
+      "prompt": "A bag contains 4 red and 6 blue pencils. Two are drawn without replacement. What is the probability both are red?",
+      "options": [
+        "4/25",
+        "4/15",
+        "1/5",
+        "2/15"
+      ],
+      "correct_idx": 3,
+      "explanation": "The probability is (4/10) × (3/9) = 12/90 = 2/15."
+    },
+    "subject": "math_lit",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "ml2",
+    "subject_title": "Mathematical Literacy",
+    "topic": "Work Rate Problems",
+    "skill_id": "math_lit:work_rate",
+    "prompt": "Pipe A fills a pool in 3 hours and Pipe B in 6 hours. How long do they take together?",
+    "options": [
+      "9 hours",
+      "1.5 hours",
+      "2 hours",
+      "4.5 hours"
+    ],
+    "correct_idx": 2,
+    "explanation": "Their combined rate is 1/3 + 1/6 = 1/2 pool per hour, so the pool takes 2 hours.",
+    "recheck": {
+      "id": "ml2r",
+      "subject_title": "Mathematical Literacy",
+      "topic": "Work Rate Problems",
+      "skill_id": "math_lit:work_rate",
+      "prompt": "One pump fills a tank in 4 hours and another in 12 hours. How long together?",
+      "options": [
+        "8 hours",
+        "2 hours",
+        "3 hours",
+        "6 hours"
+      ],
+      "correct_idx": 2,
+      "explanation": "Combined rate is 1/4 + 1/12 = 1/3 tank per hour, so it takes 3 hours."
+    },
+    "subject": "math_lit",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "ml3",
+    "subject_title": "Mathematical Literacy",
+    "topic": "Percentages",
+    "skill_id": "math_lit:percentages",
+    "prompt": "A jacket costs 20,000 ₸ and is discounted by 15%. What is the sale price?",
+    "options": [
+      "3,000 ₸",
+      "17,000 ₸",
+      "18,500 ₸",
+      "15,000 ₸"
+    ],
+    "correct_idx": 1,
+    "explanation": "15% of 20,000 is 3,000. Subtract the discount: 20,000 − 3,000 = 17,000 ₸.",
+    "recheck": {
+      "id": "ml3r",
+      "subject_title": "Mathematical Literacy",
+      "topic": "Percentages",
+      "skill_id": "math_lit:percentages",
+      "prompt": "A 12,000 ₸ item is discounted by 25%. What is the new price?",
+      "options": [
+        "8,000 ₸",
+        "9,000 ₸",
+        "10,000 ₸",
+        "3,000 ₸"
+      ],
+      "correct_idx": 1,
+      "explanation": "25% of 12,000 is 3,000; 12,000 − 3,000 = 9,000 ₸."
+    },
+    "subject": "math_lit",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "math_lit_extra_0",
+    "subject_title": "Mathematical Literacy",
+    "topic": "Mean",
+    "skill_id": "math_lit:Mean",
+    "prompt": "What is the mean of 4, 6, 8?",
+    "options": [
+      "6",
+      "5",
+      "8",
+      "10"
+    ],
+    "correct_idx": 0,
+    "explanation": "18 divided by 3 is 6.",
+    "recheck": {
+      "id": "math_lit_extra_0r",
+      "subject_title": "Mathematical Literacy",
+      "topic": "Mean",
+      "skill_id": "math_lit:Mean",
+      "prompt": "What is the mean of 6, 8, 10?",
+      "options": [
+        "8",
+        "6",
+        "10",
+        "24"
+      ],
+      "correct_idx": 0,
+      "explanation": "24 divided by 3 is 8."
+    },
+    "subject": "math_lit",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "math_lit_extra_1",
+    "subject_title": "Mathematical Literacy",
+    "topic": "Ratio",
+    "skill_id": "math_lit:Ratio",
+    "prompt": "Simplify 12:18.",
+    "options": [
+      "3:2",
+      "1:3",
+      "2:5",
+      "2:3"
+    ],
+    "correct_idx": 3,
+    "explanation": "Divide both numbers by 6.",
+    "recheck": {
+      "id": "math_lit_extra_1r",
+      "subject_title": "Mathematical Literacy",
+      "topic": "Ratio",
+      "skill_id": "math_lit:Ratio",
+      "prompt": "Simplify 15:25.",
+      "options": [
+        "5:3",
+        "1:5",
+        "3:8",
+        "3:5"
+      ],
+      "correct_idx": 3,
+      "explanation": "Divide both numbers by 5."
+    },
+    "subject": "math_lit",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "rl1",
+    "subject_title": "Reading Literacy",
+    "topic": "Main Idea",
+    "skill_id": "reading_lit:main_idea",
+    "prompt": "A text explains how city trees reduce heat, absorb rainwater, and improve air quality. What is its main idea?",
+    "options": [
+      "Trees are difficult to maintain",
+      "Cities should remove parks",
+      "Rainwater is always harmful",
+      "Urban trees provide several environmental benefits"
+    ],
+    "correct_idx": 3,
+    "explanation": "The main idea summarizes all the listed benefits, rather than focusing on just one detail.",
+    "recheck": {
+      "id": "rl1r",
+      "subject_title": "Reading Literacy",
+      "topic": "Main Idea",
+      "skill_id": "reading_lit:main_idea",
+      "prompt": "A passage describes how libraries provide books, internet access, and quiet study spaces. What is the main idea?",
+      "options": [
+        "Books are no longer useful",
+        "Libraries are only for children",
+        "Internet access is unnecessary",
+        "Libraries support learning in several ways"
+      ],
+      "correct_idx": 3,
+      "explanation": "The passage lists several ways libraries support learning."
+    },
+    "subject": "reading_lit",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "rl2",
+    "subject_title": "Reading Literacy",
+    "topic": "Inference",
+    "skill_id": "reading_lit:inference",
+    "prompt": "Mira took an umbrella, checked the dark clouds, and left early. What is the most reasonable inference?",
+    "options": [
+      "The weather was certainly sunny",
+      "She forgot where she was going",
+      "She expected possible rain",
+      "She planned to swim"
+    ],
+    "correct_idx": 2,
+    "explanation": "The umbrella and dark clouds suggest she expected rain, though the text does not say rain was certain.",
+    "recheck": {
+      "id": "rl2r",
+      "subject_title": "Reading Literacy",
+      "topic": "Inference",
+      "skill_id": "reading_lit:inference",
+      "prompt": "A student packed water, a hat, and sunscreen before a long outdoor walk. What can be inferred?",
+      "options": [
+        "They expected snow",
+        "They were going to a swimming pool for sure",
+        "They expected to spend time outdoors in sunny or hot conditions",
+        "They planned to stay indoors"
+      ],
+      "correct_idx": 2,
+      "explanation": "The items suggest preparation for an outdoor walk in sunny or hot conditions."
+    },
+    "subject": "reading_lit",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "rl3",
+    "subject_title": "Reading Literacy",
+    "topic": "Author’s Purpose",
+    "skill_id": "reading_lit:purpose",
+    "prompt": "An article lists steps for safely storing food in a refrigerator. Its main purpose is to:",
+    "options": [
+      "Describe a character",
+      "Inform or instruct readers",
+      "Entertain with a fictional story",
+      "Persuade readers to buy a car"
+    ],
+    "correct_idx": 1,
+    "explanation": "Step-by-step safety guidance is informative and instructional.",
+    "recheck": {
+      "id": "rl3r",
+      "subject_title": "Reading Literacy",
+      "topic": "Author’s Purpose",
+      "skill_id": "reading_lit:purpose",
+      "prompt": "A leaflet explains how to register for a school exam. Its main purpose is to:",
+      "options": [
+        "Describe a landscape",
+        "Give instructions",
+        "Tell a fantasy story",
+        "Criticize a film"
+      ],
+      "correct_idx": 1,
+      "explanation": "The leaflet provides practical instructions for completing a process."
+    },
+    "subject": "reading_lit",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "reading_lit_extra_0",
+    "subject_title": "Reading Literacy",
+    "topic": "Evidence",
+    "skill_id": "reading_lit:Evidence",
+    "prompt": "The train arrived at noon. Which claim is supported?",
+    "options": [
+      "It arrived at 12:00",
+      "It was late",
+      "It was empty",
+      "It departed at noon"
+    ],
+    "correct_idx": 0,
+    "explanation": "Noon means 12:00.",
+    "recheck": {
+      "id": "reading_lit_extra_0r",
+      "subject_title": "Reading Literacy",
+      "topic": "Evidence",
+      "skill_id": "reading_lit:Evidence",
+      "prompt": "The shop closes at 18:00. Which claim is supported?",
+      "options": [
+        "It closes at 6 p.m.",
+        "It opens at noon",
+        "It never opens",
+        "It is closed on Sunday"
+      ],
+      "correct_idx": 0,
+      "explanation": "18:00 means 6 p.m."
+    },
+    "subject": "reading_lit",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "reading_lit_extra_1",
+    "subject_title": "Reading Literacy",
+    "topic": "Sequence",
+    "skill_id": "reading_lit:Sequence",
+    "prompt": "First wash, then cut, finally serve the apple. What precedes cutting?",
+    "options": [
+      "Serving",
+      "Eating",
+      "Buying",
+      "Washing"
+    ],
+    "correct_idx": 3,
+    "explanation": "First indicates washing precedes cutting.",
+    "recheck": {
+      "id": "reading_lit_extra_1r",
+      "subject_title": "Reading Literacy",
+      "topic": "Sequence",
+      "skill_id": "reading_lit:Sequence",
+      "prompt": "First boil water, then add tea, finally pour. What follows boiling?",
+      "options": [
+        "Pouring",
+        "Serving",
+        "Washing",
+        "Adding tea"
+      ],
+      "correct_idx": 3,
+      "explanation": "Then introduces the next step: adding tea."
+    },
+    "subject": "reading_lit",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "kh1",
+    "subject_title": "History of Kazakhstan",
+    "topic": "Kazakh Khanate",
+    "skill_id": "kazakhstan_history:kazakh_khanate",
+    "prompt": "The Kazakh Khanate is traditionally dated to its establishment in:",
+    "options": [
+      "1219–1220",
+      "1731–1732",
+      "1991–1992",
+      "1465–1466"
+    ],
+    "correct_idx": 3,
+    "explanation": "The establishment of the Kazakh Khanate under Kerei and Zhanibek is traditionally dated to 1465–1466.",
+    "recheck": {
+      "id": "kh1r",
+      "subject_title": "History of Kazakhstan",
+      "topic": "Kazakh Khanate",
+      "skill_id": "kazakhstan_history:kazakh_khanate",
+      "prompt": "Which leaders are associated with the founding of the Kazakh Khanate?",
+      "options": [
+        "Ablai and Kenesary",
+        "Tauke and Kasym only",
+        "Alikhan and Akhmet",
+        "Kerei and Zhanibek"
+      ],
+      "correct_idx": 3,
+      "explanation": "Kerei and Zhanibek are traditionally identified as the founders of the Kazakh Khanate."
+    },
+    "subject": "kazakhstan_history",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "kh2",
+    "subject_title": "History of Kazakhstan",
+    "topic": "Independence",
+    "skill_id": "kazakhstan_history:independence",
+    "prompt": "Kazakhstan declared state independence on:",
+    "options": [
+      "30 August 1995",
+      "1 December 1991",
+      "16 December 1991",
+      "25 October 1990"
+    ],
+    "correct_idx": 2,
+    "explanation": "The Constitutional Law on State Independence was adopted on 16 December 1991.",
+    "recheck": {
+      "id": "kh2r",
+      "subject_title": "History of Kazakhstan",
+      "topic": "Independence",
+      "skill_id": "kazakhstan_history:independence",
+      "prompt": "Kazakhstan’s Independence Day is observed on:",
+      "options": [
+        "1 May",
+        "25 October",
+        "16 December",
+        "30 August"
+      ],
+      "correct_idx": 2,
+      "explanation": "Independence Day is observed on 16 December."
+    },
+    "subject": "kazakhstan_history",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "kh3",
+    "subject_title": "History of Kazakhstan",
+    "topic": "Capital City",
+    "skill_id": "kazakhstan_history:capital",
+    "prompt": "Which city became the capital of independent Kazakhstan in 1997?",
+    "options": [
+      "Turkistan",
+      "Akmola (later Astana)",
+      "Almaty in 2005",
+      "Shymkent"
+    ],
+    "correct_idx": 1,
+    "explanation": "The capital was moved from Almaty to Akmola in 1997; the city was later renamed Astana.",
+    "recheck": {
+      "id": "kh3r",
+      "subject_title": "History of Kazakhstan",
+      "topic": "Capital City",
+      "skill_id": "kazakhstan_history:capital",
+      "prompt": "From which city was the capital moved to Akmola in 1997?",
+      "options": [
+        "Kostanay",
+        "Almaty",
+        "Taraz",
+        "Aktobe"
+      ],
+      "correct_idx": 1,
+      "explanation": "The capital was transferred from Almaty to Akmola in 1997."
+    },
+    "subject": "kazakhstan_history",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "kazakhstan_history_extra_0",
+    "subject_title": "History of Kazakhstan",
+    "topic": "Independence",
+    "skill_id": "kazakhstan_history:Independence",
+    "prompt": "In which year did Kazakhstan declare independence?",
+    "options": [
+      "1991",
+      "1986",
+      "1995",
+      "2001"
+    ],
+    "correct_idx": 0,
+    "explanation": "Independence was declared on 16 December 1991.",
+    "recheck": {
+      "id": "kazakhstan_history_extra_0r",
+      "subject_title": "History of Kazakhstan",
+      "topic": "Independence",
+      "skill_id": "kazakhstan_history:Independence",
+      "prompt": "Kazakhstan Independence Day is on:",
+      "options": [
+        "16 December",
+        "22 March",
+        "9 May",
+        "1 January"
+      ],
+      "correct_idx": 0,
+      "explanation": "Independence was declared on 16 December 1991."
+    },
+    "subject": "kazakhstan_history",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "kazakhstan_history_extra_1",
+    "subject_title": "History of Kazakhstan",
+    "topic": "Currency",
+    "skill_id": "kazakhstan_history:Currency",
+    "prompt": "The national currency of Kazakhstan is:",
+    "options": [
+      "Som",
+      "Euro",
+      "Dollar",
+      "Tenge"
+    ],
+    "correct_idx": 3,
+    "explanation": "Kazakhstan uses the tenge.",
+    "recheck": {
+      "id": "kazakhstan_history_extra_1r",
+      "subject_title": "History of Kazakhstan",
+      "topic": "Currency",
+      "skill_id": "kazakhstan_history:Currency",
+      "prompt": "The tenge entered circulation in:",
+      "options": [
+        "1991",
+        "1997",
+        "2000",
+        "1993"
+      ],
+      "correct_idx": 3,
+      "explanation": "The tenge was introduced in November 1993."
+    },
+    "subject": "kazakhstan_history",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "mp1",
+    "subject_title": "Mathematics (Elective)",
+    "topic": "Quadratic Equations",
+    "skill_id": "math_profile:quadratics",
+    "prompt": "Solve x² − 5x + 6 = 0.",
+    "options": [
+      "x = −2 or x = −3",
+      "x = 1 or x = 6",
+      "No real roots",
+      "x = 2 or x = 3"
+    ],
+    "correct_idx": 3,
+    "explanation": "Factor: (x − 2)(x − 3) = 0, so x = 2 or x = 3.",
+    "recheck": {
+      "id": "mp1r",
+      "subject_title": "Mathematics (Elective)",
+      "topic": "Quadratic Equations",
+      "skill_id": "math_profile:quadratics",
+      "prompt": "Solve x² − 7x + 12 = 0.",
+      "options": [
+        "x = 2 or x = 6",
+        "x = −3 or x = −4",
+        "No real roots",
+        "x = 3 or x = 4"
+      ],
+      "correct_idx": 3,
+      "explanation": "Factor: (x − 3)(x − 4) = 0, so x = 3 or x = 4."
+    },
+    "subject": "math_profile",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "mp2",
+    "subject_title": "Mathematics (Elective)",
+    "topic": "Functions",
+    "skill_id": "math_profile:functions",
+    "prompt": "If f(x) = 2x + 3, what is f(4)?",
+    "options": [
+      "7",
+      "14",
+      "11",
+      "8"
+    ],
+    "correct_idx": 2,
+    "explanation": "Substitute x = 4: f(4) = 2 × 4 + 3 = 11.",
+    "recheck": {
+      "id": "mp2r",
+      "subject_title": "Mathematics (Elective)",
+      "topic": "Functions",
+      "skill_id": "math_profile:functions",
+      "prompt": "If g(x) = 3x − 2, what is g(5)?",
+      "options": [
+        "7",
+        "10",
+        "13",
+        "15"
+      ],
+      "correct_idx": 2,
+      "explanation": "Substitute x = 5: g(5) = 15 − 2 = 13."
+    },
+    "subject": "math_profile",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "mp3",
+    "subject_title": "Mathematics (Elective)",
+    "topic": "Geometry",
+    "skill_id": "math_profile:geometry",
+    "prompt": "A triangle has base 10 cm and height 6 cm. What is its area?",
+    "options": [
+      "20 cm²",
+      "30 cm²",
+      "60 cm²",
+      "16 cm²"
+    ],
+    "correct_idx": 1,
+    "explanation": "Triangle area = (base × height)/2 = (10 × 6)/2 = 30 cm².",
+    "recheck": {
+      "id": "mp3r",
+      "subject_title": "Mathematics (Elective)",
+      "topic": "Geometry",
+      "skill_id": "math_profile:geometry",
+      "prompt": "A triangle has base 8 cm and height 5 cm. What is its area?",
+      "options": [
+        "16 cm²",
+        "20 cm²",
+        "40 cm²",
+        "13 cm²"
+      ],
+      "correct_idx": 1,
+      "explanation": "Area = (8 × 5)/2 = 20 cm²."
+    },
+    "subject": "math_profile",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "math_profile_extra_0",
+    "subject_title": "Mathematics (Elective)",
+    "topic": "Linear equations",
+    "skill_id": "math_profile:Linear equations",
+    "prompt": "Solve 3x + 2 = 17.",
+    "options": [
+      "5",
+      "3",
+      "7",
+      "15"
+    ],
+    "correct_idx": 0,
+    "explanation": "Subtract 2 and divide by 3.",
+    "recheck": {
+      "id": "math_profile_extra_0r",
+      "subject_title": "Mathematics (Elective)",
+      "topic": "Linear equations",
+      "skill_id": "math_profile:Linear equations",
+      "prompt": "Solve 4x - 3 = 21.",
+      "options": [
+        "6",
+        "4",
+        "7",
+        "24"
+      ],
+      "correct_idx": 0,
+      "explanation": "Add 3 and divide by 4."
+    },
+    "subject": "math_profile",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "math_profile_extra_1",
+    "subject_title": "Mathematics (Elective)",
+    "topic": "Powers",
+    "skill_id": "math_profile:Powers",
+    "prompt": "Evaluate 2³ × 2².",
+    "options": [
+      "16",
+      "64",
+      "12",
+      "32"
+    ],
+    "correct_idx": 3,
+    "explanation": "Add exponents: 2⁵ = 32.",
+    "recheck": {
+      "id": "math_profile_extra_1r",
+      "subject_title": "Mathematics (Elective)",
+      "topic": "Powers",
+      "skill_id": "math_profile:Powers",
+      "prompt": "Evaluate 3² × 3².",
+      "options": [
+        "27",
+        "18",
+        "36",
+        "81"
+      ],
+      "correct_idx": 3,
+      "explanation": "Add exponents: 3⁴ = 81."
+    },
+    "subject": "math_profile",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "cs1",
+    "subject_title": "Computer Science",
+    "topic": "Algorithms and Data Structures",
+    "skill_id": "informatics:complexity",
+    "prompt": "What is the worst-case time complexity of QuickSort?",
+    "options": [
+      "O(n²)",
+      "O(n)",
+      "O(1)",
+      "O(n log n)"
+    ],
+    "correct_idx": 0,
+    "explanation": "If each pivot splits the array very unevenly, the total work can be proportional to n².",
+    "recheck": {
+      "id": "cs1r",
+      "subject_title": "Computer Science",
+      "topic": "Algorithms and Data Structures",
+      "skill_id": "informatics:complexity",
+      "prompt": "What is the worst-case time complexity of linear search in an array of n items?",
+      "options": [
+        "O(log n)",
+        "O(1)",
+        "O(n²)",
+        "O(n)"
+      ],
+      "correct_idx": 3,
+      "explanation": "In the worst case, linear search checks all n items, so the time complexity is O(n)."
+    },
+    "subject": "informatics",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "cs2",
+    "subject_title": "Computer Science",
+    "topic": "Number Systems",
+    "skill_id": "informatics:number_systems",
+    "prompt": "What is the binary representation of decimal 5?",
+    "options": [
+      "100",
+      "111",
+      "101",
+      "110"
+    ],
+    "correct_idx": 2,
+    "explanation": "5 = 4 + 1, so its binary representation is 101.",
+    "recheck": {
+      "id": "cs2r",
+      "subject_title": "Computer Science",
+      "topic": "Number Systems",
+      "skill_id": "informatics:number_systems",
+      "prompt": "What is the binary representation of decimal 6?",
+      "options": [
+        "111",
+        "100",
+        "110",
+        "101"
+      ],
+      "correct_idx": 2,
+      "explanation": "6 = 4 + 2, so its binary representation is 110."
+    },
+    "subject": "informatics",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "cs3",
+    "subject_title": "Computer Science",
+    "topic": "Programming Basics",
+    "skill_id": "informatics:variables",
+    "prompt": "Which Python data type is suitable for the value True?",
+    "options": [
+      "list",
+      "bool",
+      "str",
+      "float"
+    ],
+    "correct_idx": 1,
+    "explanation": "True and False are Boolean values in Python, represented by the bool type.",
+    "recheck": {
+      "id": "cs3r",
+      "subject_title": "Computer Science",
+      "topic": "Programming Basics",
+      "skill_id": "informatics:variables",
+      "prompt": "Which Python value is a Boolean value?",
+      "options": [
+        "[False]",
+        "False",
+        "\"False\"",
+        "0.5"
+      ],
+      "correct_idx": 1,
+      "explanation": "False without quotation marks is a Boolean value."
+    },
+    "subject": "informatics",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "informatics_extra_0",
+    "subject_title": "Computer Science",
+    "topic": "Logic",
+    "skill_id": "informatics:Logic",
+    "prompt": "True AND False equals:",
+    "options": [
+      "False",
+      "True",
+      "Both",
+      "Undefined"
+    ],
+    "correct_idx": 0,
+    "explanation": "AND requires both operands to be true.",
+    "recheck": {
+      "id": "informatics_extra_0r",
+      "subject_title": "Computer Science",
+      "topic": "Logic",
+      "skill_id": "informatics:Logic",
+      "prompt": "False AND False equals:",
+      "options": [
+        "False",
+        "True",
+        "Both",
+        "Undefined"
+      ],
+      "correct_idx": 0,
+      "explanation": "Neither operand is true."
+    },
+    "subject": "informatics",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "informatics_extra_1",
+    "subject_title": "Computer Science",
+    "topic": "Bits",
+    "skill_id": "informatics:Bits",
+    "prompt": "One byte contains how many bits?",
+    "options": [
+      "4",
+      "16",
+      "10",
+      "8"
+    ],
+    "correct_idx": 3,
+    "explanation": "A byte consists of eight bits.",
+    "recheck": {
+      "id": "informatics_extra_1r",
+      "subject_title": "Computer Science",
+      "topic": "Bits",
+      "skill_id": "informatics:Bits",
+      "prompt": "Two bytes contain how many bits?",
+      "options": [
+        "8",
+        "32",
+        "2",
+        "16"
+      ],
+      "correct_idx": 3,
+      "explanation": "Two times eight equals sixteen."
+    },
+    "subject": "informatics",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "ph1",
+    "subject_title": "Physics",
+    "topic": "Speed",
+    "skill_id": "physics:speed",
+    "prompt": "A car travels 120 km in 2 hours. What is its average speed?",
+    "options": [
+      "30 km/h",
+      "120 km/h",
+      "240 km/h",
+      "60 km/h"
+    ],
+    "correct_idx": 3,
+    "explanation": "Average speed = distance/time = 120/2 = 60 km/h.",
+    "recheck": {
+      "id": "ph1r",
+      "subject_title": "Physics",
+      "topic": "Speed",
+      "skill_id": "physics:speed",
+      "prompt": "A cyclist travels 45 km in 3 hours. Average speed?",
+      "options": [
+        "12 km/h",
+        "135 km/h",
+        "48 km/h",
+        "15 km/h"
+      ],
+      "correct_idx": 3,
+      "explanation": "45/3 = 15 km/h."
+    },
+    "subject": "physics",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "physics_extra_0",
+    "subject_title": "Physics",
+    "topic": "Force",
+    "skill_id": "physics:Force",
+    "prompt": "2 kg accelerates at 3 m/s². Net force?",
+    "options": [
+      "1.5 N",
+      "9 N",
+      "6 N",
+      "5 N"
+    ],
+    "correct_idx": 2,
+    "explanation": "F = ma = 2 × 3.",
+    "recheck": {
+      "id": "physics_extra_0r",
+      "subject_title": "Physics",
+      "topic": "Force",
+      "skill_id": "physics:Force",
+      "prompt": "4 kg accelerates at 2 m/s². Net force?",
+      "options": [
+        "2 N",
+        "16 N",
+        "8 N",
+        "6 N"
+      ],
+      "correct_idx": 2,
+      "explanation": "F = ma = 4 × 2."
+    },
+    "subject": "physics",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "physics_extra_1",
+    "subject_title": "Physics",
+    "topic": "Voltage",
+    "skill_id": "physics:Voltage",
+    "prompt": "A 3 Ω resistor carries 2 A. Voltage?",
+    "options": [
+      "9 V",
+      "6 V",
+      "5 V",
+      "1.5 V"
+    ],
+    "correct_idx": 1,
+    "explanation": "V = IR = 2 × 3.",
+    "recheck": {
+      "id": "physics_extra_1r",
+      "subject_title": "Physics",
+      "topic": "Voltage",
+      "skill_id": "physics:Voltage",
+      "prompt": "A 4 Ω resistor carries 3 A. Voltage?",
+      "options": [
+        "16 V",
+        "12 V",
+        "7 V",
+        "1.33 V"
+      ],
+      "correct_idx": 1,
+      "explanation": "V = IR = 3 × 4."
+    },
+    "subject": "physics",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "physics_extra_2",
+    "subject_title": "Physics",
+    "topic": "Density",
+    "skill_id": "physics:Density",
+    "prompt": "20 g occupies 5 cm³. Density?",
+    "options": [
+      "4 g/cm³",
+      "100 g/cm³",
+      "25 g/cm³",
+      "0.25 g/cm³"
+    ],
+    "correct_idx": 0,
+    "explanation": "Density = mass/volume = 20/5.",
+    "recheck": {
+      "id": "physics_extra_2r",
+      "subject_title": "Physics",
+      "topic": "Density",
+      "skill_id": "physics:Density",
+      "prompt": "30 g occupies 10 cm³. Density?",
+      "options": [
+        "3 g/cm³",
+        "300 g/cm³",
+        "40 g/cm³",
+        "0.33 g/cm³"
+      ],
+      "correct_idx": 0,
+      "explanation": "Density = 30/10."
+    },
+    "subject": "physics",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "physics_extra_3",
+    "subject_title": "Physics",
+    "topic": "Work",
+    "skill_id": "physics:Work",
+    "prompt": "10 N moves an object 3 m along the force. Work?",
+    "options": [
+      "13 J",
+      "7 J",
+      "3 J",
+      "30 J"
+    ],
+    "correct_idx": 3,
+    "explanation": "Work = force × distance.",
+    "recheck": {
+      "id": "physics_extra_3r",
+      "subject_title": "Physics",
+      "topic": "Work",
+      "skill_id": "physics:Work",
+      "prompt": "5 N moves an object 4 m along the force. Work?",
+      "options": [
+        "9 J",
+        "25 J",
+        "1.25 J",
+        "20 J"
+      ],
+      "correct_idx": 3,
+      "explanation": "Work = 5 × 4."
+    },
+    "subject": "physics",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "bio1",
+    "subject_title": "Biology",
+    "topic": "Cell Biology",
+    "skill_id": "biology:cells",
+    "prompt": "Which organelle is the main site of cellular respiration?",
+    "options": [
+      "Ribosome",
+      "Nucleus",
+      "Golgi apparatus",
+      "Mitochondrion"
+    ],
+    "correct_idx": 3,
+    "explanation": "Mitochondria are the main site of aerobic cellular respiration.",
+    "recheck": {
+      "id": "bio1r",
+      "subject_title": "Biology",
+      "topic": "Cell Biology",
+      "skill_id": "biology:cells",
+      "prompt": "Which organelle contains most of a eukaryotic cell’s DNA?",
+      "options": [
+        "Ribosome",
+        "Cell membrane",
+        "Vacuole",
+        "Nucleus"
+      ],
+      "correct_idx": 3,
+      "explanation": "The nucleus contains most of the DNA in a eukaryotic cell."
+    },
+    "subject": "biology",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "biology_extra_0",
+    "subject_title": "Biology",
+    "topic": "Photosynthesis",
+    "skill_id": "biology:Photosynthesis",
+    "prompt": "Which gas is consumed in photosynthesis?",
+    "options": [
+      "Helium",
+      "Nitrogen",
+      "Carbon dioxide",
+      "Oxygen"
+    ],
+    "correct_idx": 2,
+    "explanation": "Plants use carbon dioxide to make sugars.",
+    "recheck": {
+      "id": "biology_extra_0r",
+      "subject_title": "Biology",
+      "topic": "Photosynthesis",
+      "skill_id": "biology:Photosynthesis",
+      "prompt": "Which gas is released in photosynthesis?",
+      "options": [
+        "Hydrogen",
+        "Nitrogen",
+        "Oxygen",
+        "Helium"
+      ],
+      "correct_idx": 2,
+      "explanation": "Photosynthesis releases oxygen."
+    },
+    "subject": "biology",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "biology_extra_1",
+    "subject_title": "Biology",
+    "topic": "Genetics",
+    "skill_id": "biology:Genetics",
+    "prompt": "Which molecule carries hereditary information?",
+    "options": [
+      "Glucose",
+      "DNA",
+      "Water",
+      "Starch"
+    ],
+    "correct_idx": 1,
+    "explanation": "DNA stores genetic information.",
+    "recheck": {
+      "id": "biology_extra_1r",
+      "subject_title": "Biology",
+      "topic": "Genetics",
+      "skill_id": "biology:Genetics",
+      "prompt": "A gene is a segment of:",
+      "options": [
+        "Bone",
+        "DNA",
+        "Fat",
+        "Water"
+      ],
+      "correct_idx": 1,
+      "explanation": "Genes are functional DNA sequences."
+    },
+    "subject": "biology",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "biology_extra_2",
+    "subject_title": "Biology",
+    "topic": "Circulation",
+    "skill_id": "biology:Circulation",
+    "prompt": "Which organ pumps blood?",
+    "options": [
+      "Heart",
+      "Lung",
+      "Kidney",
+      "Stomach"
+    ],
+    "correct_idx": 0,
+    "explanation": "Heart contractions pump blood.",
+    "recheck": {
+      "id": "biology_extra_2r",
+      "subject_title": "Biology",
+      "topic": "Circulation",
+      "skill_id": "biology:Circulation",
+      "prompt": "The heart belongs to which system?",
+      "options": [
+        "Circulatory",
+        "Digestive",
+        "Skeletal",
+        "Respiratory"
+      ],
+      "correct_idx": 0,
+      "explanation": "The circulatory system transports blood."
+    },
+    "subject": "biology",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "biology_extra_3",
+    "subject_title": "Biology",
+    "topic": "Ecology",
+    "skill_id": "biology:Ecology",
+    "prompt": "Which organism is a producer?",
+    "options": [
+      "Wolf",
+      "Rabbit",
+      "Eagle",
+      "Grass"
+    ],
+    "correct_idx": 3,
+    "explanation": "Grass produces organic matter through photosynthesis.",
+    "recheck": {
+      "id": "biology_extra_3r",
+      "subject_title": "Biology",
+      "topic": "Ecology",
+      "skill_id": "biology:Ecology",
+      "prompt": "Which pond organism is a producer?",
+      "options": [
+        "Fish",
+        "Frog",
+        "Snail",
+        "Green algae"
+      ],
+      "correct_idx": 3,
+      "explanation": "Green algae photosynthesize."
+    },
+    "subject": "biology",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "ch1",
+    "subject_title": "Chemistry",
+    "topic": "Atomic Structure",
+    "skill_id": "chemistry:atoms",
+    "prompt": "What is the electrical charge of a proton?",
+    "options": [
+      "Negative",
+      "Neutral",
+      "Variable in every atom",
+      "Positive"
+    ],
+    "correct_idx": 3,
+    "explanation": "A proton has a positive electric charge.",
+    "recheck": {
+      "id": "ch1r",
+      "subject_title": "Chemistry",
+      "topic": "Atomic Structure",
+      "skill_id": "chemistry:atoms",
+      "prompt": "Which subatomic particle has a negative charge?",
+      "options": [
+        "Proton",
+        "Neutron",
+        "Nucleus",
+        "Electron"
+      ],
+      "correct_idx": 3,
+      "explanation": "Electrons carry a negative electric charge."
+    },
+    "subject": "chemistry",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "chemistry_extra_0",
+    "subject_title": "Chemistry",
+    "topic": "Water",
+    "skill_id": "chemistry:Water",
+    "prompt": "What is the formula of water?",
+    "options": [
+      "O₂",
+      "NaCl",
+      "H₂O",
+      "CO₂"
+    ],
+    "correct_idx": 2,
+    "explanation": "Water has two hydrogen atoms and one oxygen atom.",
+    "recheck": {
+      "id": "chemistry_extra_0r",
+      "subject_title": "Chemistry",
+      "topic": "Water",
+      "skill_id": "chemistry:Water",
+      "prompt": "How many hydrogen atoms are in H₂O?",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "1"
+      ],
+      "correct_idx": 2,
+      "explanation": "The subscript 2 indicates two hydrogen atoms."
+    },
+    "subject": "chemistry",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "chemistry_extra_1",
+    "subject_title": "Chemistry",
+    "topic": "Atomic number",
+    "skill_id": "chemistry:Atomic number",
+    "prompt": "Atomic number counts:",
+    "options": [
+      "Shells",
+      "Protons",
+      "Neutrons only",
+      "Molecules"
+    ],
+    "correct_idx": 1,
+    "explanation": "Atomic number is the proton count.",
+    "recheck": {
+      "id": "chemistry_extra_1r",
+      "subject_title": "Chemistry",
+      "topic": "Atomic number",
+      "skill_id": "chemistry:Atomic number",
+      "prompt": "An atom has 6 protons. Its atomic number is:",
+      "options": [
+        "0",
+        "6",
+        "12",
+        "3"
+      ],
+      "correct_idx": 1,
+      "explanation": "Atomic number equals its six protons."
+    },
+    "subject": "chemistry",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "chemistry_extra_2",
+    "subject_title": "Chemistry",
+    "topic": "pH",
+    "skill_id": "chemistry:pH",
+    "prompt": "A solution with pH 2 is:",
+    "options": [
+      "Acidic",
+      "Basic",
+      "Neutral",
+      "Always pure water"
+    ],
+    "correct_idx": 0,
+    "explanation": "pH below 7 is acidic.",
+    "recheck": {
+      "id": "chemistry_extra_2r",
+      "subject_title": "Chemistry",
+      "topic": "pH",
+      "skill_id": "chemistry:pH",
+      "prompt": "A solution with pH 12 is:",
+      "options": [
+        "Basic",
+        "Acidic",
+        "Neutral",
+        "Always pure water"
+      ],
+      "correct_idx": 0,
+      "explanation": "pH above 7 is basic."
+    },
+    "subject": "chemistry",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "chemistry_extra_3",
+    "subject_title": "Chemistry",
+    "topic": "Mass conservation",
+    "skill_id": "chemistry:Mass conservation",
+    "prompt": "In a closed chemical reaction total mass is:",
+    "options": [
+      "Doubled",
+      "Halved",
+      "Destroyed",
+      "Conserved"
+    ],
+    "correct_idx": 3,
+    "explanation": "Atoms rearrange, conserving total mass.",
+    "recheck": {
+      "id": "chemistry_extra_3r",
+      "subject_title": "Chemistry",
+      "topic": "Mass conservation",
+      "skill_id": "chemistry:Mass conservation",
+      "prompt": "In a closed reaction 5 g and 3 g react fully. Product mass?",
+      "options": [
+        "2 g",
+        "15 g",
+        "5 g",
+        "8 g"
+      ],
+      "correct_idx": 3,
+      "explanation": "By mass conservation: 5 + 3 = 8 g."
+    },
+    "subject": "chemistry",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "wh1",
+    "subject_title": "World History",
+    "topic": "Ancient Civilizations",
+    "skill_id": "world_history:ancient",
+    "prompt": "Which civilization developed along the Nile River?",
+    "options": [
+      "Ancient Rome",
+      "Maya",
+      "Indus Valley only",
+      "Ancient Egypt"
+    ],
+    "correct_idx": 3,
+    "explanation": "Ancient Egyptian civilization developed along the Nile.",
+    "recheck": {
+      "id": "wh1r",
+      "subject_title": "World History",
+      "topic": "Ancient Civilizations",
+      "skill_id": "world_history:ancient",
+      "prompt": "The city of Rome was central to which ancient civilization?",
+      "options": [
+        "Egyptian",
+        "Mayan",
+        "Sumerian",
+        "Roman"
+      ],
+      "correct_idx": 3,
+      "explanation": "Rome was the central city of the Roman civilization."
+    },
+    "subject": "world_history",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "world_history_extra_0",
+    "subject_title": "World History",
+    "topic": "Renaissance",
+    "skill_id": "world_history:Renaissance",
+    "prompt": "The European Renaissance began primarily in:",
+    "options": [
+      "Canada",
+      "Australia",
+      "Italy",
+      "Japan"
+    ],
+    "correct_idx": 2,
+    "explanation": "It developed in Italian cities.",
+    "recheck": {
+      "id": "world_history_extra_0r",
+      "subject_title": "World History",
+      "topic": "Renaissance",
+      "skill_id": "world_history:Renaissance",
+      "prompt": "Florence was a major center of the:",
+      "options": [
+        "Space Race",
+        "Industrial Revolution",
+        "Renaissance",
+        "Cold War"
+      ],
+      "correct_idx": 2,
+      "explanation": "Florence was a major Italian Renaissance center."
+    },
+    "subject": "world_history",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "world_history_extra_1",
+    "subject_title": "World History",
+    "topic": "Industry",
+    "skill_id": "world_history:Industry",
+    "prompt": "The Industrial Revolution began in:",
+    "options": [
+      "Mexico",
+      "Britain",
+      "Brazil",
+      "Mongolia"
+    ],
+    "correct_idx": 1,
+    "explanation": "It began in eighteenth-century Britain.",
+    "recheck": {
+      "id": "world_history_extra_1r",
+      "subject_title": "World History",
+      "topic": "Industry",
+      "skill_id": "world_history:Industry",
+      "prompt": "A key change in the Industrial Revolution was:",
+      "options": [
+        "Removal of machines",
+        "Mechanized factories",
+        "End of trade",
+        "Disappearance of cities"
+      ],
+      "correct_idx": 1,
+      "explanation": "Mechanization expanded factory production."
+    },
+    "subject": "world_history",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "world_history_extra_2",
+    "subject_title": "World History",
+    "topic": "World War II",
+    "skill_id": "world_history:World War II",
+    "prompt": "World War II ended in:",
+    "options": [
+      "1945",
+      "1918",
+      "1939",
+      "1961"
+    ],
+    "correct_idx": 0,
+    "explanation": "World War II ended in 1945.",
+    "recheck": {
+      "id": "world_history_extra_2r",
+      "subject_title": "World History",
+      "topic": "World War II",
+      "skill_id": "world_history:World War II",
+      "prompt": "World War II began in Europe in:",
+      "options": [
+        "1939",
+        "1945",
+        "1914",
+        "1929"
+      ],
+      "correct_idx": 0,
+      "explanation": "Germany invaded Poland in September 1939."
+    },
+    "subject": "world_history",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "world_history_extra_3",
+    "subject_title": "World History",
+    "topic": "United Nations",
+    "skill_id": "world_history:United Nations",
+    "prompt": "The UN was founded in:",
+    "options": [
+      "1919",
+      "1991",
+      "2001",
+      "1945"
+    ],
+    "correct_idx": 3,
+    "explanation": "The UN was founded in 1945.",
+    "recheck": {
+      "id": "world_history_extra_3r",
+      "subject_title": "World History",
+      "topic": "United Nations",
+      "skill_id": "world_history:United Nations",
+      "prompt": "A core purpose of the UN is:",
+      "options": [
+        "Setting shop prices",
+        "Running every school",
+        "Issuing one global currency",
+        "International peace"
+      ],
+      "correct_idx": 3,
+      "explanation": "The UN promotes peace and international cooperation."
+    },
+    "subject": "world_history",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "law1",
+    "subject_title": "Fundamentals of Law",
+    "topic": "Constitution",
+    "skill_id": "law:constitution",
+    "prompt": "What is the primary role of a constitution?",
+    "options": [
+      "Set prices in shops",
+      "Replace every law with a contract",
+      "Describe only local customs",
+      "Establish the fundamental principles and structure of the state"
+    ],
+    "correct_idx": 3,
+    "explanation": "A constitution establishes the core principles, institutions, and rules of a state.",
+    "recheck": {
+      "id": "law1r",
+      "subject_title": "Fundamentals of Law",
+      "topic": "Constitution",
+      "skill_id": "law:constitution",
+      "prompt": "Which document generally has the highest legal force within a state?",
+      "options": [
+        "School timetable",
+        "Private receipt",
+        "News article",
+        "Constitution"
+      ],
+      "correct_idx": 3,
+      "explanation": "A constitution generally has the highest legal force in the national legal system."
+    },
+    "subject": "law",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "law_extra_0",
+    "subject_title": "Fundamentals of Law",
+    "topic": "Powers",
+    "skill_id": "law:Powers",
+    "prompt": "Which branch generally passes laws?",
+    "options": [
+      "Police",
+      "Banks",
+      "Legislature",
+      "Courts"
+    ],
+    "correct_idx": 2,
+    "explanation": "Legislatures adopt laws.",
+    "recheck": {
+      "id": "law_extra_0r",
+      "subject_title": "Fundamentals of Law",
+      "topic": "Powers",
+      "skill_id": "law:Powers",
+      "prompt": "Which branch interprets laws in disputes?",
+      "options": [
+        "Banks",
+        "Media",
+        "Judiciary",
+        "Legislature"
+      ],
+      "correct_idx": 2,
+      "explanation": "Courts exercise judicial power."
+    },
+    "subject": "law",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "law_extra_1",
+    "subject_title": "Fundamentals of Law",
+    "topic": "Rights",
+    "skill_id": "law:Rights",
+    "prompt": "Freedom of expression is a:",
+    "options": [
+      "School mark",
+      "Civil right",
+      "Tax receipt",
+      "Discount"
+    ],
+    "correct_idx": 1,
+    "explanation": "Freedom of expression is a civil freedom.",
+    "recheck": {
+      "id": "law_extra_1r",
+      "subject_title": "Fundamentals of Law",
+      "topic": "Rights",
+      "skill_id": "law:Rights",
+      "prompt": "The right to a fair trial provides:",
+      "options": [
+        "Sports results",
+        "Legal protection",
+        "Weather forecasts",
+        "Price controls"
+      ],
+      "correct_idx": 1,
+      "explanation": "A fair trial protects people in legal proceedings."
+    },
+    "subject": "law",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "law_extra_2",
+    "subject_title": "Fundamentals of Law",
+    "topic": "Contracts",
+    "skill_id": "law:Contracts",
+    "prompt": "A contract is generally:",
+    "options": [
+      "An agreement creating legal obligations",
+      "Any greeting",
+      "A weather report",
+      "A road sign"
+    ],
+    "correct_idx": 0,
+    "explanation": "Contracts establish legal obligations between parties.",
+    "recheck": {
+      "id": "law_extra_2r",
+      "subject_title": "Fundamentals of Law",
+      "topic": "Contracts",
+      "skill_id": "law:Contracts",
+      "prompt": "Which is a contractual obligation in a sale?",
+      "options": [
+        "Paying the agreed price",
+        "Predicting rain",
+        "Liking music",
+        "Reading news"
+      ],
+      "correct_idx": 0,
+      "explanation": "A sale agreement creates a payment obligation."
+    },
+    "subject": "law",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "law_extra_3",
+    "subject_title": "Fundamentals of Law",
+    "topic": "Presumption of innocence",
+    "skill_id": "law:Presumption of innocence",
+    "prompt": "A person accused of a crime is presumed:",
+    "options": [
+      "Automatically guilty",
+      "Never eligible for trial",
+      "Responsible for every rumor",
+      "Innocent until proven guilty"
+    ],
+    "correct_idx": 3,
+    "explanation": "Guilt must be established through legal process.",
+    "recheck": {
+      "id": "law_extra_3r",
+      "subject_title": "Fundamentals of Law",
+      "topic": "Presumption of innocence",
+      "skill_id": "law:Presumption of innocence",
+      "prompt": "Does an accusation alone prove guilt?",
+      "options": [
+        "Always",
+        "Only online",
+        "Only at school",
+        "No"
+      ],
+      "correct_idx": 3,
+      "explanation": "An allegation alone is not proof."
+    },
+    "subject": "law",
+    "language": "en",
+    "status": "demo"
+  },
+  {
+    "id": "demo-math_lit-percentages-ru",
+    "subject": "math_lit",
+    "language": "ru",
+    "status": "demo",
+    "topic": "Проценты",
+    "skill_id": "percentages",
+    "prompt": "Товар стоит 12 000 ₸. Скидка 25%. Какова новая цена?",
+    "options": [
+      "9000",
+      "10000",
+      "3000",
+      "8000"
+    ],
+    "correct_idx": 0,
+    "explanation": "12 000 × 0,75 = 9000.",
+    "recheck": {
+      "prompt": "Товар стоит 20 000 ₸. Скидка 10%. Какова новая цена?",
+      "options": [
+        "18000",
+        "19000",
+        "2000",
+        "10000"
+      ],
+      "correct_idx": 0,
+      "explanation": "20 000 × 0,9 = 18 000."
+    }
+  },
+  {
+    "id": "demo-math_lit-percentages-kk",
+    "subject": "math_lit",
+    "language": "kk",
+    "status": "demo",
+    "topic": "Пайыздар",
+    "skill_id": "percentages",
+    "prompt": "Тауар 12 000 ₸ тұрады. Жеңілдік 25%. Жаңа бағасы қандай?",
+    "options": [
+      "9000",
+      "10000",
+      "3000",
+      "8000"
+    ],
+    "correct_idx": 0,
+    "explanation": "12 000 × 0,75 = 9000.",
+    "recheck": {
+      "prompt": "Тауар 20 000 ₸ тұрады. Жеңілдік 10%. Жаңа бағасы қандай?",
+      "options": [
+        "18000",
+        "19000",
+        "2000",
+        "10000"
+      ],
+      "correct_idx": 0,
+      "explanation": "20 000 × 0,9 = 18 000."
+    }
+  },
+  {
+    "id": "demo-reading_lit-main_idea-ru",
+    "subject": "reading_lit",
+    "language": "ru",
+    "status": "demo",
+    "topic": "Главная мысль",
+    "skill_id": "main_idea",
+    "prompt": "Библиотека предоставляет книги, интернет и место для занятий. Какова главная мысль?",
+    "options": [
+      "Библиотека помогает учиться",
+      "Только книги полезны",
+      "Интернет не нужен",
+      "Библиотека закрыта"
+    ],
+    "correct_idx": 0,
+    "explanation": "Все перечисленные услуги помогают учиться.",
+    "recheck": {
+      "prompt": "Деревья дают тень и очищают воздух. Какова главная мысль?",
+      "options": [
+        "Деревья приносят пользу",
+        "Деревья только дают плоды",
+        "Воздух не важен",
+        "Тень вредна"
+      ],
+      "correct_idx": 0,
+      "explanation": "Оба свойства описывают пользу деревьев."
+    }
+  },
+  {
+    "id": "demo-reading_lit-main_idea-kk",
+    "subject": "reading_lit",
+    "language": "kk",
+    "status": "demo",
+    "topic": "Негізгі ой",
+    "skill_id": "main_idea",
+    "prompt": "Кітапхана кітаптар, интернет және оқу орнын ұсынады. Негізгі ой қандай?",
+    "options": [
+      "Кітапхана оқуға көмектеседі",
+      "Тек кітаптар пайдалы",
+      "Интернет қажет емес",
+      "Кітапхана жабық"
+    ],
+    "correct_idx": 0,
+    "explanation": "Аталған қызметтердің бәрі оқуға көмектеседі.",
+    "recheck": {
+      "prompt": "Ағаштар көлеңке береді және ауаны тазартады. Негізгі ой қандай?",
+      "options": [
+        "Ағаштар пайдалы",
+        "Ағаштар тек жеміс береді",
+        "Ауа маңызды емес",
+        "Көлеңке зиянды"
+      ],
+      "correct_idx": 0,
+      "explanation": "Екі қасиет те ағаштардың пайдасын сипаттайды."
+    }
+  },
+  {
+    "id": "demo-kazakhstan_history-independence-ru",
+    "subject": "kazakhstan_history",
+    "language": "ru",
+    "status": "demo",
+    "topic": "Независимость",
+    "skill_id": "independence",
+    "prompt": "Когда Казахстан провозгласил государственную независимость?",
+    "options": [
+      "16.12.1991",
+      "25.10.1990",
+      "30.08.1995",
+      "01.12.1991"
+    ],
+    "correct_idx": 0,
+    "explanation": "Закон о государственной независимости принят 16 декабря 1991 года.",
+    "recheck": {
+      "prompt": "В каком году принят закон о государственной независимости Казахстана?",
+      "options": [
+        "1991",
+        "1990",
+        "1995",
+        "1986"
+      ],
+      "correct_idx": 0,
+      "explanation": "1991."
+    }
+  },
+  {
+    "id": "demo-kazakhstan_history-independence-kk",
+    "subject": "kazakhstan_history",
+    "language": "kk",
+    "status": "demo",
+    "topic": "Тәуелсіздік",
+    "skill_id": "independence",
+    "prompt": "Қазақстан мемлекеттік тәуелсіздігін қашан жариялады?",
+    "options": [
+      "16.12.1991",
+      "25.10.1990",
+      "30.08.1995",
+      "01.12.1991"
+    ],
+    "correct_idx": 0,
+    "explanation": "Мемлекеттік тәуелсіздік туралы заң 1991 жылғы 16 желтоқсанда қабылданды.",
+    "recheck": {
+      "prompt": "Қазақстанның мемлекеттік тәуелсіздігі туралы заң қай жылы қабылданды?",
+      "options": [
+        "1991",
+        "1990",
+        "1995",
+        "1986"
+      ],
+      "correct_idx": 0,
+      "explanation": "1991."
+    }
+  },
+  {
+    "id": "demo-math_profile-quadratics-ru",
+    "subject": "math_profile",
+    "language": "ru",
+    "status": "demo",
+    "topic": "Квадратные уравнения",
+    "skill_id": "quadratics",
+    "prompt": "Решите: x² − 5x + 6 = 0.",
+    "options": [
+      "2; 3",
+      "−2; −3",
+      "1; 6",
+      "0; 5"
+    ],
+    "correct_idx": 0,
+    "explanation": "(x − 2)(x − 3) = 0.",
+    "recheck": {
+      "prompt": "Решите: x² − 7x + 12 = 0.",
+      "options": [
+        "3; 4",
+        "2; 6",
+        "−3; −4",
+        "0; 7"
+      ],
+      "correct_idx": 0,
+      "explanation": "(x − 3)(x − 4) = 0."
+    }
+  },
+  {
+    "id": "demo-math_profile-quadratics-kk",
+    "subject": "math_profile",
+    "language": "kk",
+    "status": "demo",
+    "topic": "Квадрат теңдеулер",
+    "skill_id": "quadratics",
+    "prompt": "Теңдеуді шешіңіз: x² − 5x + 6 = 0.",
+    "options": [
+      "2; 3",
+      "−2; −3",
+      "1; 6",
+      "0; 5"
+    ],
+    "correct_idx": 0,
+    "explanation": "(x − 2)(x − 3) = 0.",
+    "recheck": {
+      "prompt": "Теңдеуді шешіңіз: x² − 7x + 12 = 0.",
+      "options": [
+        "3; 4",
+        "2; 6",
+        "−3; −4",
+        "0; 7"
+      ],
+      "correct_idx": 0,
+      "explanation": "(x − 3)(x − 4) = 0."
+    }
+  },
+  {
+    "id": "demo-informatics-binary-ru",
+    "subject": "informatics",
+    "language": "ru",
+    "status": "demo",
+    "topic": "Двоичная система",
+    "skill_id": "binary",
+    "prompt": "Чему равно двоичное число 101 в десятичной системе?",
+    "options": [
+      "5",
+      "3",
+      "6",
+      "7"
+    ],
+    "correct_idx": 0,
+    "explanation": "1 × 4 + 0 × 2 + 1 = 5.",
+    "recheck": {
+      "prompt": "Чему равно двоичное число 110 в десятичной системе?",
+      "options": [
+        "6",
+        "5",
+        "3",
+        "7"
+      ],
+      "correct_idx": 0,
+      "explanation": "1 × 4 + 1 × 2 + 0 = 6."
+    }
+  },
+  {
+    "id": "demo-informatics-binary-kk",
+    "subject": "informatics",
+    "language": "kk",
+    "status": "demo",
+    "topic": "Екілік жүйе",
+    "skill_id": "binary",
+    "prompt": "Екілік 101 саны ондық жүйеде нешеге тең?",
+    "options": [
+      "5",
+      "3",
+      "6",
+      "7"
+    ],
+    "correct_idx": 0,
+    "explanation": "1 × 4 + 0 × 2 + 1 = 5.",
+    "recheck": {
+      "prompt": "Екілік 110 саны ондық жүйеде нешеге тең?",
+      "options": [
+        "6",
+        "5",
+        "3",
+        "7"
+      ],
+      "correct_idx": 0,
+      "explanation": "1 × 4 + 1 × 2 + 0 = 6."
+    }
+  },
+  {
+    "id": "demo-physics-speed-ru",
+    "subject": "physics",
+    "language": "ru",
+    "status": "demo",
+    "topic": "Скорость",
+    "skill_id": "speed",
+    "prompt": "Тело прошло 100 м за 20 с. Какова средняя скорость в м/с?",
+    "options": [
+      "5",
+      "20",
+      "2",
+      "2000"
+    ],
+    "correct_idx": 0,
+    "explanation": "v = s/t = 100/20 = 5.",
+    "recheck": {
+      "prompt": "Тело прошло 120 м за 30 с. Какова средняя скорость в м/с?",
+      "options": [
+        "4",
+        "3",
+        "30",
+        "90"
+      ],
+      "correct_idx": 0,
+      "explanation": "v = 120/30 = 4."
+    }
+  },
+  {
+    "id": "demo-physics-speed-kk",
+    "subject": "physics",
+    "language": "kk",
+    "status": "demo",
+    "topic": "Жылдамдық",
+    "skill_id": "speed",
+    "prompt": "Дене 20 с ішінде 100 м жүрді. Орташа жылдамдығы неше м/с?",
+    "options": [
+      "5",
+      "20",
+      "2",
+      "2000"
+    ],
+    "correct_idx": 0,
+    "explanation": "v = s/t = 100/20 = 5.",
+    "recheck": {
+      "prompt": "Дене 30 с ішінде 120 м жүрді. Орташа жылдамдығы неше м/с?",
+      "options": [
+        "4",
+        "3",
+        "30",
+        "90"
+      ],
+      "correct_idx": 0,
+      "explanation": "v = 120/30 = 4."
+    }
+  },
+  {
+    "id": "demo-biology-cell-ru",
+    "subject": "biology",
+    "language": "ru",
+    "status": "demo",
+    "topic": "Клетка",
+    "skill_id": "cell",
+    "prompt": "Какая органелла осуществляет фотосинтез?",
+    "options": [
+      "Хлоропласт",
+      "Рибосома",
+      "Ядро",
+      "Лизосома"
+    ],
+    "correct_idx": 0,
+    "explanation": "Фотосинтез происходит в хлоропластах.",
+    "recheck": {
+      "prompt": "Какая органелла содержит хлорофилл?",
+      "options": [
+        "Хлоропласт",
+        "Рибосома",
+        "Ядро",
+        "Лизосома"
+      ],
+      "correct_idx": 0,
+      "explanation": "Хлорофилл находится в хлоропластах."
+    }
+  },
+  {
+    "id": "demo-biology-cell-kk",
+    "subject": "biology",
+    "language": "kk",
+    "status": "demo",
+    "topic": "Жасуша",
+    "skill_id": "cell",
+    "prompt": "Фотосинтезді қай органоид жүзеге асырады?",
+    "options": [
+      "Хлоропласт",
+      "Рибосома",
+      "Ядро",
+      "Лизосома"
+    ],
+    "correct_idx": 0,
+    "explanation": "Фотосинтез хлоропласттарда жүреді.",
+    "recheck": {
+      "prompt": "Қай органоидта хлорофилл болады?",
+      "options": [
+        "Хлоропласт",
+        "Рибосома",
+        "Ядро",
+        "Лизосома"
+      ],
+      "correct_idx": 0,
+      "explanation": "Хлорофилл хлоропласттарда болады."
+    }
+  },
+  {
+    "id": "demo-chemistry-moles-ru",
+    "subject": "chemistry",
+    "language": "ru",
+    "status": "demo",
+    "topic": "Количество вещества",
+    "skill_id": "moles",
+    "prompt": "Молярная масса воды 18 г/моль. Сколько моль в 36 г воды?",
+    "options": [
+      "2",
+      "18",
+      "0.5",
+      "36"
+    ],
+    "correct_idx": 0,
+    "explanation": "n = m/M = 36/18 = 2 моль.",
+    "recheck": {
+      "prompt": "Молярная масса CO₂ 44 г/моль. Сколько моль в 88 г?",
+      "options": [
+        "2",
+        "44",
+        "0.5",
+        "88"
+      ],
+      "correct_idx": 0,
+      "explanation": "n = 88/44 = 2 моль."
+    }
+  },
+  {
+    "id": "demo-chemistry-moles-kk",
+    "subject": "chemistry",
+    "language": "kk",
+    "status": "demo",
+    "topic": "Зат мөлшері",
+    "skill_id": "moles",
+    "prompt": "Судың молярлық массасы 18 г/моль. 36 г суда неше моль бар?",
+    "options": [
+      "2",
+      "18",
+      "0.5",
+      "36"
+    ],
+    "correct_idx": 0,
+    "explanation": "n = m/M = 36/18 = 2 моль.",
+    "recheck": {
+      "prompt": "CO₂ молярлық массасы 44 г/моль. 88 г затта неше моль бар?",
+      "options": [
+        "2",
+        "44",
+        "0.5",
+        "88"
+      ],
+      "correct_idx": 0,
+      "explanation": "n = 88/44 = 2 моль."
+    }
+  },
+  {
+    "id": "demo-world_history-renaissance-ru",
+    "subject": "world_history",
+    "language": "ru",
+    "status": "demo",
+    "topic": "Возрождение",
+    "skill_id": "renaissance",
+    "prompt": "В какой стране началась эпоха Возрождения?",
+    "options": [
+      "Италия",
+      "Япония",
+      "Австралия",
+      "Бразилия"
+    ],
+    "correct_idx": 0,
+    "explanation": "Возрождение зародилось в городах Италии.",
+    "recheck": {
+      "prompt": "Какой город был одним из центров итальянского Возрождения?",
+      "options": [
+        "Флоренция",
+        "Токио",
+        "Сидней",
+        "Рио-де-Жанейро"
+      ],
+      "correct_idx": 0,
+      "explanation": "Флоренция была важным центром Возрождения."
+    }
+  },
+  {
+    "id": "demo-world_history-renaissance-kk",
+    "subject": "world_history",
+    "language": "kk",
+    "status": "demo",
+    "topic": "Қайта өрлеу",
+    "skill_id": "renaissance",
+    "prompt": "Қайта өрлеу дәуірі қай елде басталды?",
+    "options": [
+      "Италия",
+      "Жапония",
+      "Аустралия",
+      "Бразилия"
+    ],
+    "correct_idx": 0,
+    "explanation": "Қайта өрлеу Италия қалаларында басталды.",
+    "recheck": {
+      "prompt": "Қай қала италиялық Қайта өрлеудің орталықтарының бірі болды?",
+      "options": [
+        "Флоренция",
+        "Токио",
+        "Сидней",
+        "Рио-де-Жанейро"
+      ],
+      "correct_idx": 0,
+      "explanation": "Флоренция Қайта өрлеудің маңызды орталығы болды."
+    }
+  },
+  {
+    "id": "demo-law-constitution-ru",
+    "subject": "law",
+    "language": "ru",
+    "status": "demo",
+    "topic": "Конституция",
+    "skill_id": "constitution",
+    "prompt": "Как называется основной закон государства?",
+    "options": [
+      "Конституция",
+      "Приказ",
+      "Договор аренды",
+      "Инструкция"
+    ],
+    "correct_idx": 0,
+    "explanation": "Конституция — основной закон государства.",
+    "recheck": {
+      "prompt": "Когда принята действующая Конституция Казахстана?",
+      "options": [
+        "30.08.1995",
+        "16.12.1991",
+        "25.10.1990",
+        "01.01.2000"
+      ],
+      "correct_idx": 0,
+      "explanation": "30.08.1995."
+    }
+  },
+  {
+    "id": "demo-law-constitution-kk",
+    "subject": "law",
+    "language": "kk",
+    "status": "demo",
+    "topic": "Конституция",
+    "skill_id": "constitution",
+    "prompt": "Мемлекеттің негізгі заңы қалай аталады?",
+    "options": [
+      "Конституция",
+      "Бұйрық",
+      "Жалдау шарты",
+      "Нұсқаулық"
+    ],
+    "correct_idx": 0,
+    "explanation": "Конституция — мемлекеттің негізгі заңы.",
+    "recheck": {
+      "prompt": "Қазақстанның қолданыстағы Конституциясы қашан қабылданды?",
+      "options": [
+        "30.08.1995",
+        "16.12.1991",
+        "25.10.1990",
+        "01.01.2000"
+      ],
+      "correct_idx": 0,
+      "explanation": "30.08.1995."
+    }
+  }
+]
