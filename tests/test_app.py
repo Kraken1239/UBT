@@ -350,6 +350,19 @@ class AppTests(unittest.TestCase):
                 self.assertEqual(self.request('/api/login','POST',credentials,headers={'Origin':'https://custom.example'})[0],200)
                 self.assertEqual(self.request('/api/login','POST',credentials,headers={'Origin':'https://ubt-test.onrender.com'})[0],403)
 
+    def test_prepared_answer_explanation_without_student_text(self):
+        a,r=self.completed();q=r['questions'][0]
+        with patch.dict(os.environ,{},clear=True):
+            status,result=self.request('/api/agent','POST',{'attemptId':a['id'],'questionId':q['id']})
+        self.assertEqual(status,200)
+        self.assertEqual(result['mode'],'prepared')
+        self.assertIn(q['options'][q['correct_idx']],result['response'])
+        self.assertIn(q['explanation'],result['response'])
+        self.assertIn('Почему этот ответ правильный:',result['response'])
+        self.assertNotIn('recheck',result['response'])
+        with patch.dict(os.environ,{'UBT_AI_API_KEY':'test-only'}):
+            self.assertEqual(self.request('/api/agent','POST',{'attemptId':a['id'],'questionId':q['id']})[0],400)
+
     def test_rate_limit(self):
         with patch.dict(server.LIMITS,{},clear=True):
             server.throttle(('unit',self.email),1,60)

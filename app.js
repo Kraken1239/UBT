@@ -83,7 +83,7 @@ const translations = {
     "fresh": "Задача из банка на тот же навык",
     "aiSetup": "Подключение AI-агента",
     "aiSetupInfo": "Для подключения AI-агента нужны дополнительные средства на оплату OpenAI API. Пока AI-агент недоступен, можно проходить тесты, практиковаться и пользоваться подготовленными объяснениями.",
-    "preparedAction": "Показать подготовленный разбор",
+    "preparedAction": "Показать объяснение ответа",
     "chat": "Обсуждение решения",
     "emptyChat": "Задай вопрос или опиши своё решение. AI учитывает последние сообщения этого разбора.",
     "you": "Ты",
@@ -175,7 +175,7 @@ const translations = {
     "fresh": "Сол дағдыға арналған банктегі тапсырма",
     "aiSetup": "AI агентін қосу",
     "aiSetupInfo": "AI агентін қосу үшін OpenAI API қызметін төлеуге қосымша қаражат қажет. AI агенті әзірге қолжетімсіз болса да, тесттерді орындауға, жаттығуға және дайын түсіндірмелерді пайдалануға болады.",
-    "preparedAction": "Дайын түсіндірмені көрсету",
+    "preparedAction": "Жауаптың түсіндірмесін көрсету",
     "chat": "Шешімді талқылау",
     "emptyChat": "Сұрақ қой немесе шешу жолыңды сипатта. AI осы талдаудың соңғы хабарламаларын ескереді.",
     "you": "Сен",
@@ -267,7 +267,7 @@ const translations = {
     "fresh": "Bank question targeting the same skill",
     "aiSetup": "Connecting the AI agent",
     "aiSetupInfo": "Connecting the AI agent requires additional funding to cover OpenAI API costs. While the AI agent is unavailable, tests, practice and prepared explanations remain available.",
-    "preparedAction": "Show prepared explanation",
+    "preparedAction": "Explain the answer",
     "chat": "Discuss the solution",
     "emptyChat": "Ask a question or describe your reasoning. AI uses recent messages from this review.",
     "you": "You",
@@ -280,6 +280,7 @@ const translations = {
 const aiErrors={
 ru:{ai_auth:'OpenAI отклонил ключ или доступ. Создай действующий ключ и перезапусти сервер.',ai_quota:'Достигнут лимит OpenAI или нет баланса API. Проверь Billing.',ai_model:'Модель не найдена или недоступна этому ключу. Проверь UBT_AI_MODEL.',ai_request:'OpenAI отклонил параметры запроса. Проверь совместимость модели UBT_AI_MODEL.',ai_region:'OpenAI сообщил, что сервис недоступен в этом регионе.',ai_provider:'Сбой на стороне OpenAI. Попробуй позже.',ai_tls:'Не удалось проверить сертификат OpenAI. Проверь дату Windows, сертификаты и настройки антивируса. Проверку TLS отключать не нужно.',ai_timeout:'OpenAI не ответил вовремя. Попробуй ещё раз.',ai_connection:'Нет соединения с OpenAI. Проверь интернет, брандмауэр и доступ к api.openai.com.',ai_response:'OpenAI вернул некорректный ответ. Попробуй ещё раз.'},
 kk:{ai_auth:'OpenAI кілтті немесе қолжетімділікті қабылдамады. Кілтті тексеріп, серверді қайта іске қос.',ai_quota:'OpenAI сұрау шегіне жетті немесе API балансы жоқ. Billing бөлімін тексер.',ai_model:'Модель табылмады немесе кілтке қолжетімсіз. UBT_AI_MODEL мәнін тексер.',ai_request:'OpenAI сұрау параметрлерін қабылдамады. Модель үйлесімділігін тексер.',ai_region:'OpenAI бұл аймақта қызмет қолжетімсіз екенін хабарлады.',ai_provider:'OpenAI жағында ақау бар. Кейінірек көр.',ai_tls:'OpenAI сертификатын тексеру мүмкін болмады. Windows күні мен сертификаттарды тексер. TLS тексеруін өшірме.',ai_timeout:'OpenAI уақытында жауап бермеді. Қайта көр.',ai_connection:'OpenAI-мен байланыс жоқ. Интернетті және api.openai.com қолжетімділігін тексер.',ai_response:'OpenAI жарамсыз жауап қайтарды. Қайта көр.'}};
+const preparedHints={ru:'Чтобы получить готовое объяснение ответа, просто нажми кнопку ниже. Текст вводить необязательно.',kk:'Дайын түсіндірмені алу үшін төмендегі батырманы бас. Мәтін енгізу міндетті емес.',en:'Press the button below for a prepared explanation of the answer. Entering text is optional.'};
 const names={ru:{math_lit:'Математическая грамотность',reading_lit:'Грамотность чтения',kazakhstan_history:'История Казахстана',math_profile:'Математика',informatics:'Информатика',physics:'Физика',biology:'Биология',chemistry:'Химия',world_history:'Всемирная история',law:'Основы права'},kk:{math_lit:'Математикалық сауаттылық',reading_lit:'Оқу сауаттылығы',kazakhstan_history:'Қазақстан тарихы',math_profile:'Математика',informatics:'Информатика',physics:'Физика',biology:'Биология',chemistry:'Химия',world_history:'Дүниежүзі тарихы',law:'Құқық негіздері'},en:{math_lit:'Mathematical literacy',reading_lit:'Reading literacy',kazakhstan_history:'History of Kazakhstan',math_profile:'Mathematics',informatics:'Computer science',physics:'Physics',biology:'Biology',chemistry:'Chemistry',world_history:'World history',law:'Fundamentals of law'}};
 const pairs={'Math-Informatics':['math_profile','informatics'],'Math-Physics':['math_profile','physics'],'Biology-Chemistry':['biology','chemistry'],'WorldHistory-Law':['world_history','law']};
 let lang='ru',me=null,page='home',progress=null,attempt=null,index=0,answers=[],deadline=0,timer=null,review=null,register=false,busy=false,routeVersion=0;
@@ -306,12 +307,12 @@ function practicePanel(){
 }
 function conversationPanel(){
  const turns=review.conversation||[];
- return turns.length?turns.map(turn=>`<div class="chat-turn"><strong>${t('you')}</strong><p class="pre">${esc(turn.reasoning)}</p><strong>${t(turn.mode==='ai'?'aiResponse':'prepared')}</strong><p class="pre">${esc(turn.response)}</p></div>`).join(''):`<p class="muted">${t('emptyChat')}</p>`;
+ return turns.length?turns.map(turn=>`<div class="chat-turn">${turn.reasoning?`<strong>${t('you')}</strong><p class="pre">${esc(turn.reasoning)}</p>`:''}<strong>${t(turn.mode==='ai'?'aiResponse':'prepared')}</strong><p class="pre">${esc(turn.response)}</p></div>`).join(''):`<p class="muted">${t('emptyChat')}</p>`;
 }
 async function openReview(aid,qid){
  clearNotice();const data=await api('/review','POST',{attemptId:aid,questionId:qid});
  review={...data,attemptId:aid,questionId:qid};page='review';shell();
- $('#app').innerHTML=`<h1>${t('review')}</h1><div class="grid two"><section class="stack"><article class="card">${badge(data.question.status)}${data.question.status==='reviewed'?`<p class="review-meta">${esc(data.question.reviewed_by)} · ${esc(data.question.reviewed_at)}<br>${esc(data.question.source)}<br>${esc(data.question.license)}</p>`:''}<h2>${esc(data.question.prompt)}</h2><h3>${t('explanation')}</h3><p class="pre">${esc(data.explanation)}</p></article><article class="card"><h2>${t('chat')}</h2><p class="muted">${t(me.ai?'aiOn':'aiOff')}</p>${!me.ai?`<details class="warning"><summary>${t('aiSetup')}</summary><p>${t('aiSetupInfo')}</p></details>`:''}<div id="agent-response" aria-live="polite">${conversationPanel()}</div><form id="agent-form"><label>${t('reasonHint')}<textarea name="reasoning" minlength="5" maxlength="4000" required></textarea></label><div class="actions"><button>${t(me.ai?'ask':'preparedAction')}</button></div></form></article></section><article class="card" id="practice-panel">${practicePanel()}</article></div>`;
+ $('#app').innerHTML=`<h1>${t('review')}</h1><div class="grid two"><section class="stack"><article class="card">${badge(data.question.status)}${data.question.status==='reviewed'?`<p class="review-meta">${esc(data.question.reviewed_by)} · ${esc(data.question.reviewed_at)}<br>${esc(data.question.source)}<br>${esc(data.question.license)}</p>`:''}<h2>${esc(data.question.prompt)}</h2><h3>${t('explanation')}</h3><p class="pre">${esc(data.explanation)}</p></article><article class="card"><h2>${t('chat')}</h2><p class="muted">${t(me.ai?'aiOn':'aiOff')}</p>${!me.ai?`<details class="warning"><summary>${t('aiSetup')}</summary><p>${t('aiSetupInfo')}</p></details>`:''}<div id="agent-response" aria-live="polite">${conversationPanel()}</div><form id="agent-form"><label>${me.ai?t('reasonHint'):preparedHints[lang]}<textarea name="reasoning" minlength="5" maxlength="4000" ${me.ai?'required':''}></textarea></label><div class="actions"><button>${t(me.ai?'ask':'preparedAction')}</button></div></form></article></section><article class="card" id="practice-panel">${practicePanel()}</article></div>`;
 }
 async function runAction(action){if(action.dataset.page)return go(action.dataset.page);if(action.dataset.start)return start(action.dataset.start);if(action.dataset.review)return openReview(action.dataset.attempt,action.dataset.review);if(action.dataset.result)return resultScreen(progress.history.find(a=>a.id===action.dataset.result));if(action.dataset.action==='new-practice'){const data=await api('/practice/new','POST',{attemptId:review.attemptId,questionId:review.questionId});review.practice=data.practice;$('#practice-panel').innerHTML=practicePanel();return;}if(action.dataset.action==='toggle-auth'){register=!register;clearNotice();return authScreen();}if(action.dataset.action==='prev'){index--;return questionScreen();}if(action.dataset.action==='logout'){if(attempt&&!confirm(t('leave')))return;await api('/logout','POST',{});me=null;attempt=null;clearInterval(timer);authScreen();}}
 document.addEventListener('click',async e=>{const action=e.target.closest('button');if(!action||action.type==='submit'&&action.closest('form'))return;if(busy)return;busy=true;action.disabled=true;try{await runAction(action);}catch(err){notify(err.message);}finally{busy=false;action.disabled=false;}});

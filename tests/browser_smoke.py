@@ -63,9 +63,11 @@ with tempfile.TemporaryDirectory(prefix='ubt-browser-') as data:
                 page.get_by_role('button',name='Разобрать ошибку',exact=True).first.click()
             review_id=response.value.json()['question']['id']
             practice=response.value.json()['practice']
-            page.locator('textarea').fill('Я умножил цену на 25 и не разделил на сто.')
-            page.get_by_role('button',name='Показать подготовленный разбор',exact=True).click()
+            assert page.locator('textarea').input_value()==''
+            page.get_by_role('button',name='Показать объяснение ответа',exact=True).click()
             page.get_by_text('Подготовленный ответ, без анализа AI',exact=True).first.wait_for()
+            assert 'Правильный ответ:' in page.locator('#agent-response').inner_text()
+            assert 'Почему этот ответ правильный:' in page.locator('#agent-response').inner_text()
             # Regression: two incorrect practice attempts, then a correct one on
             # the same review page. Never leave, sign out, or reopen the review.
             for turn in range(3):
@@ -91,12 +93,12 @@ with tempfile.TemporaryDirectory(prefix='ubt-browser-') as data:
             # An AI provider error must leave the form usable for retry.
             page.route('**/api/agent',lambda route:route.fulfill(status=503,content_type='application/json',body=json.dumps({'error':'AI quota or rate limit reached; check provider billing and retry later'})))
             page.locator('textarea').fill('Почему мой способ не работает?')
-            page.get_by_role('button',name='Показать подготовленный разбор',exact=True).click()
+            page.get_by_role('button',name='Показать объяснение ответа',exact=True).click()
             page.locator('#notice.error').wait_for()
-            assert page.get_by_role('button',name='Показать подготовленный разбор',exact=True).is_enabled()
+            assert page.get_by_role('button',name='Показать объяснение ответа',exact=True).is_enabled()
             assert page.locator('textarea').input_value()=='Почему мой способ не работает?'
             page.unroute('**/api/agent')
-            page.get_by_role('button',name='Показать подготовленный разбор',exact=True).click()
+            page.get_by_role('button',name='Показать объяснение ответа',exact=True).click()
             page.locator('.chat-turn').nth(1).wait_for()
             page.get_by_role('button',name='Обзор',exact=True).click()
             page.get_by_text('Первичное понимание',exact=True).first.wait_for()
