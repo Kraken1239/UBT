@@ -81,8 +81,8 @@ def validate_bank(items):
     return items
 
 def load_bank():
-    items = validate_bank(json.loads((ROOT / 'content/demo.json').read_text()))
-    if (DATA / 'imported.json').exists(): items += validate_bank(json.loads((DATA / 'imported.json').read_text()))
+    items = validate_bank(json.loads((ROOT / 'content/demo.json').read_text(encoding='utf-8')))
+    if (DATA / 'imported.json').exists(): items += validate_bank(json.loads((DATA / 'imported.json').read_text(encoding='utf-8')))
     require(len({q['id'] for q in items}) == len(items), 'Duplicate bank IDs')
     BANK.clear()
     BANK.update({q['id']: q for q in items})
@@ -313,12 +313,12 @@ def main():
     initialize()
     if args.command!='serve':
         require(args.file,'Bank file is required')
-        items=validate_bank(json.loads(Path(args.file).read_text()))
+        items=validate_bank(json.loads(Path(args.file).read_text(encoding='utf-8')))
         if args.command=='import-bank':
             require(not any(q['id'] in BANK for q in items),'An ID already exists; imports never overwrite items')
-            old=json.loads((DATA/'imported.json').read_text()) if (DATA/'imported.json').exists() else []
+            old=json.loads((DATA/'imported.json').read_text(encoding='utf-8')) if (DATA/'imported.json').exists() else []
             tmp=DATA/'imported.tmp'
-            tmp.write_text(json.dumps(old+items,ensure_ascii=False,indent=2)+'\n')
+            tmp.write_text(json.dumps(old+items,ensure_ascii=False,indent=2)+'\n', encoding='utf-8')
             tmp.replace(DATA/'imported.json')
         print(f'{args.command}: {len(items)} questions OK. Restart server after import.')
     else:
