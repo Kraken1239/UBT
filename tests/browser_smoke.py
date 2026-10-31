@@ -48,7 +48,7 @@ with tempfile.TemporaryDirectory(prefix='ubt-browser-') as data:
             with page.expect_response('**/api/attempts') as response:
                 page.locator('[data-start=math_lit]').click()
             attempt=response.value.json()
-            assert len(attempt['questions'])==5
+            assert len(attempt['questions'])==10
             for i,q in enumerate(attempt['questions']):
                 wrong=(keys[q['id']]['correct_idx']+1)%len(q['options'])
                 page.locator(f'[name=answer][value="{wrong}"]').check()
@@ -58,7 +58,7 @@ with tempfile.TemporaryDirectory(prefix='ubt-browser-') as data:
                     page.get_by_role('button',name='Далее',exact=True).click()
                     assert page.locator('[name=answer]:checked').count()==1
                 page.get_by_role('button',name='Завершить тест' if i==4 else 'Далее',exact=True).click()
-            page.get_by_role('heading',name='Результат: 0 / 5').wait_for()
+            page.get_by_role('heading',name='Результат: 0 / 10').wait_for()
             with page.expect_response('**/api/review') as response:
                 page.get_by_role('button',name='Разобрать ошибку',exact=True).first.click()
             review_id=response.value.json()['question']['id']
@@ -129,7 +129,7 @@ with tempfile.TemporaryDirectory(prefix='ubt-browser-') as data:
             other.locator('#auth-form button').click()
             other.get_by_text('Алғашқы түсіну',exact=True).first.wait_for()
             other.get_by_role('button',name='Тарих',exact=True).click()
-            other.get_by_role('cell',name='0 / 5',exact=True).wait_for()
+            other.get_by_role('cell',name='0 / 10',exact=True).wait_for()
             # Exercise every profile pair in all three UI languages, including
             # navigation cancellation and answer preservation on Back.
             all_pairs={'Math-Informatics':'informatics','Math-Physics':'physics','Biology-Chemistry':'chemistry','WorldHistory-Law':'law'}
@@ -194,3 +194,4 @@ with tempfile.TemporaryDirectory(prefix='ubt-browser-') as data:
             print(json.dumps({'passed':['registration','diagnostic','server grading','prepared agent fallback','wrong twice then correct on same review page','practice and conversation survive reload','AI error retry preserves input','progress','reload','Kazakh UI','mobile layout','server restart persistence','second browser login and sync','12 UI language/profile combinations','navigation cancel and confirm','Back preserves answer','unanswered submit cancel and confirm','AI UI mock renders text safely','logout and wrong password','no JS or CSP errors']},ensure_ascii=False))
     finally:
         process.terminate();process.wait(timeout=5)
+

@@ -9,11 +9,11 @@ import server
 class ContentTests(unittest.TestCase):
     def test_bank_schema_and_language_coverage(self):
         questions=server.validate_bank(json.loads((server.ROOT/'content/demo.json').read_text(encoding='utf-8')))
-        self.assertEqual(len(questions),200)
+        self.assertEqual(len(questions),250)
         for language in ['ru','kk','en']:
             for subject in server.SUBJECTS:
                 selected=[q for q in questions if q['subject']==subject and q['language']==language]
-                self.assertGreaterEqual(len(selected),5,(language,subject))
+                self.assertEqual(len(selected),5 if language=='en' else 10,(language,subject))
         for q in questions:
             for item in [q,q['recheck']]:
                 self.assertEqual(len(item['options']),len(set(item['options'])),q['id'])
@@ -54,3 +54,4 @@ class ContentTests(unittest.TestCase):
         self.assertTrue(calls)
 
 if __name__=='__main__':unittest.main()
+
