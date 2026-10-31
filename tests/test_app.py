@@ -282,10 +282,11 @@ class AppTests(unittest.TestCase):
                     visited.add(subject['id'])
                     status,a=self.request('/api/attempts','POST',{'subject':subject['id']},client)
                     self.assertEqual(status,201)
-                    self.assertEqual(len(a['questions']),5)
+                    self.assertEqual(len(a['questions']),5 if language=='en' else 10)
+                    self.assertEqual(len({q['id'] for q in a['questions']}),len(a['questions']))
                     answers=[server.BANK[q['id']]['correct_idx'] for q in a['questions']]
                     _,result=self.request('/api/attempts/'+a['id']+'/submit','POST',{'answers':answers},client)
-                    self.assertEqual(result['score'],5)
+                    self.assertEqual(result['score'],5 if language=='en' else 10)
                     payload={'attemptId':a['id'],'questionId':a['questions'][0]['id']}
                     status,review=self.request('/api/review','POST',payload,client)
                     self.assertEqual(status,200)
@@ -370,3 +371,4 @@ class AppTests(unittest.TestCase):
             self.assertEqual(e.exception.status,429)
 
 if __name__=='__main__':unittest.main()
+

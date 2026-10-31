@@ -21,6 +21,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 ROOT = Path(__file__).resolve().parent
 DATA = Path(os.environ.get('UBT_DATA_DIR', ROOT / '.data'))
 LANGUAGES = {'en', 'ru', 'kk'}
+DIAGNOSTIC_QUESTIONS = {'ru': 10, 'kk': 10, 'en': 5}
 PAIRS = {'Math-Informatics': ['math_profile', 'informatics'], 'Math-Physics': ['math_profile', 'physics'], 'Biology-Chemistry': ['biology', 'chemistry'], 'WorldHistory-Law': ['world_history', 'law']}
 MANDATORY = ['math_lit', 'reading_lit', 'kazakhstan_history']
 SUBJECTS = set(MANDATORY + sum(PAIRS.values(), []))
@@ -224,7 +225,7 @@ class Handler(BaseHTTPRequestHandler):
                     require(qs, 'No questions in this language')
                     reviewed=[q for q in qs if q['status']=='reviewed']
                     if reviewed: qs=reviewed
-                    qs=secrets.SystemRandom().sample(qs,min(len(qs),5))
+                    qs=secrets.SystemRandom().sample(qs,min(len(qs),DIAGNOSTIC_QUESTIONS[p['language']]))
                     aid=secrets.token_urlsafe(18)
                     db.execute('INSERT INTO attempts VALUES(?,?,?,?,?,?,?,?)',(aid,uid,subject,p['language'],json.dumps(qs),None,None,time.time()))
                     return self.send(201,{'id':aid,'questions':[public_question(q) for q in qs], 'seconds':300})
@@ -455,3 +456,4 @@ if __name__=='__main__':
         detail=f' [{e.code}]' if e.code else ''
         status=f' (HTTP {e.provider_status})' if e.provider_status else ''
         raise SystemExit(e.message+detail+status)
+
